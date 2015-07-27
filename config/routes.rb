@@ -1,5 +1,22 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  # get 'static_pages/home'
+  # get 'static_pages/about'
+  
+  root 'posts#index'
+
+  resources :users, only: [:index, :show]
+
+  # # root
+  # authenticated :user do
+  #   root to: "users#index", as: :authenticated_root, via: :get
+  # end
+
+  # unauthenticated do
+  #   root to: "posts#index"
+  # end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

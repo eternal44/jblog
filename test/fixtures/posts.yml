@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id         :integer          not null, primary key
+#  title      :string
+#  text       :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+valid_post: 
+  title: "How to make a blog"
+  text: "Ipsum LoremIpsum LoremIpsum LoremIpsum Lorem    Ipsum Lorem"
+#
+invalid_post: 
+  title: ""
+  text: ""
