@@ -1,0 +1,19 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: jblog_development
+  pool: 5
+  host: localhost
+  timeout: 5000
+  username: james
+  password: secret #is a password necesary?
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: jblog_test
+  pool: 5
+  host: localhost
+  timeout: 5000
+  username: james
+  password: secret #is a password necesary?
