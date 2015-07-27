@@ -1,8 +1,21 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id         :integer          not null, primary key
+#  title      :string
+#  text       :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_id    :integer
+#
+
 require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
   def setup
-    @user = users(:james)
+    @admin = users(:james)
+    @regular = users(:steve)
     @post = posts(:valid_post)
   end
 
@@ -21,8 +34,12 @@ class PostTest < ActiveSupport::TestCase
   end
 
   test "james should be the only one to create" do
-    @post.user_id = 2
+    @post.user_id = @steve
     assert_not @post.valid?
+  end
+
+  test "order should be most recent first" do
+    assert_equal Post.first, posts(:most_recent)
   end
 end
 

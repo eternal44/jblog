@@ -7,6 +7,7 @@
 #  text       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
@@ -17,8 +18,18 @@
 #
 valid_post: 
   title: "How to make a blog"
-  text: "Ipsum LoremIpsum LoremIpsum LoremIpsum Lorem    Ipsum Lorem"
-#
+  text: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum "
+  user: james
+  created_at: <%= 10.minutes.ago %>
+
 invalid_post: 
   title: ""
   text: ""
+  user: steve
+  created_at: <%= 20.minutes.ago %>
+
+most_recent:
+  title: "Most Recent Post"
+  text: "I got nothing to write really"
+  user: james
+  created_at: <%= Time.zone.now %>
