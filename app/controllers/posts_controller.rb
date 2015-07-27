@@ -56,9 +56,8 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    # post_params = params[:post]
-    # post_params ? post_params.permit(:title, :text) : {}
-    params.require(:post).permit(:user_id, :title, :text)
+    post_params = params[:post]
+    post_params ? post_params.permit(:user_id, :title, :text) : {} #how does this work?
   end
 
   def post_scope

@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   # get 'static_pages/home'
   # get 'static_pages/about'
+
+  resources :users, only: [:index, :show, :destroy]
   
+  resources :posts
+
   root 'posts#index'
 
   resources :users, only: [:index, :show]

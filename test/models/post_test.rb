@@ -37,9 +37,4 @@ class PostTest < ActiveSupport::TestCase
     @post.user_id = @steve
     assert_not @post.valid?
   end
-
-  test "order should be most recent first" do
-    assert_equal Post.first, posts(:most_recent)
-  end
 end
-
