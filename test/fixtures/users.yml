@@ -24,7 +24,7 @@
 # below each fixture, per the syntax in the comments below
 #
 james: 
-  email: jamesyoun710@gmail.com
+  email: jyoun@gmail.com
   encrypted_password: <%= User.new.send(:password_digest, 'password1234') %>
 
 steve:
