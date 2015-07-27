@@ -21,47 +21,57 @@
 <body>
 
 <%= render "shared/navbar" %>
-
-<div class="container-fluid">
 <div id="masthead">  
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1>Coding Blog
-          <p class="lead">A layman's journey into coding.</p>
+        <h1>Blog
+          <p class="lead">Catchy Subtitle Here</p>
         </h1>
       </div>
       <div class="col-md-5">
         <div class="well well-lg"> 
           <div class="row">
             <div class="col-sm-12">
-              Search Field
+              Ad Space      
             </div>
           </div>
         </div>
       </div>
     </div> 
   </div><!-- /cont -->
+  
+   
 </div>
-
-
 <div class="container">
   <div class="row">
+
     <div class="col-md-12"> 
+
+      <div class="panel">
+        <div class="panel-body">
+
           <%= yield %>
           <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a>
+
+
+        </div>
+      </div>
+
+
+
     </div><!--/col-12-->
   </div>
 </div>
-</div><!--container-fluid-->
-</body>
+
+
 <hr>
 
 <div class="container" id="footer">
   <div class="row">
     <div class="col col-sm-12">
 
-      <h1>Follow Me</h1>
+      <h1>Follow Us</h1>
       <div class="btn-group">
         <a class="btn btn-twitter btn-lg" href="#"><i class="icon-twitter icon-large"></i> Twitter</a>
         <a class="btn btn-facebook btn-lg" href="#"><i class="icon-facebook icon-large"></i> Facebook</a>
@@ -87,8 +97,8 @@
 
       </div>
       <div class="col-sm-6">
+        <p class="pull-right">Built with <i class="icon-heart-empty"></i> at <a href="http://www.bootply.com">Bootply</a></p>      
       </div>
     </div>
   </div>
 </footer>
-</html>
