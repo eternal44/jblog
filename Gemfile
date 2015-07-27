@@ -1,3 +1,5 @@
+source 'https://rubygems.org'
+
 gem 'rails', '4.2.1'
 gem 'faker', '~> 1.4.3'
 gem 'active_type', '~> 0.3.4'
