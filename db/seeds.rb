@@ -17,6 +17,6 @@ user = User.first
 
 20.times do
   title = "Fake blog post"
-  text = Faker::Lorem.sentence(40)
+  text = Faker::Lorem.sentence(400)
   user.posts.create!(title: title, text: text)
 end
