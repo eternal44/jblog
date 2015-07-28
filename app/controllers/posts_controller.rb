@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    load_posts
+    load_post
   end
 
   def new
@@ -58,6 +58,7 @@ class PostsController < ApplicationController
   def post_params
     post_params = params[:post]
     post_params ? post_params.permit(:user_id, :title, :text) : {} #how does this work?
+    # post_params = params.require(:post).permit(:user_id, :title, :text)
   end
 
   def post_scope
