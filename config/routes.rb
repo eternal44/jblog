@@ -3,14 +3,11 @@ Rails.application.routes.draw do
 
   # get 'static_pages/home'
   # get 'static_pages/about'
-
-  resources :users, only: [:index, :show, :destroy]
   
   resources :posts
+  resources :users, only: [:index, :show]
 
   root 'posts#index'
-
-  resources :users, only: [:index, :show]
 
   # # root
   # authenticated :user do
