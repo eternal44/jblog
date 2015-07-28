@@ -25,8 +25,10 @@
         <% end %>
         <%# <td><%= link_to "Destroy", group_path(group), method: :delete, data: {confirm: 'Are you sure?' } %1></td> %>
       </div>
-      <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
     </div>
+    <%= render partial: "shared/comments/form", locals: {commentable: @post } %>
+    <%= render partial: "shared/comments/comments", locals: {commentable: @post } %>
     <br><br>
   </div>
 </div>

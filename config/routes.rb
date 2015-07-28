@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   get 'static_pages/contact'
   get 'static_pages/about'
   
-  resources :posts
+  resources :posts do
+    resources :comments, module: :posts
+  end
+
   resources :users, only: [:index, :show]
 
   root 'posts#index'
