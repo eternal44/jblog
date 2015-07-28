@@ -1,5 +1,6 @@
 
 <!--/stories-->
+<%= @hello %>
 <div class="row">    
   <br>
   <div class="col-md-2 col-sm-3 text-center">
@@ -16,8 +17,9 @@
           <li><a href="#"><i class="glyphicon glyphicon-comment"></i> 4 Comments</a></li>
           <li><a href="#"><i class="glyphicon glyphicon-share"></i> 34 Shares</a></li>
         </ul>
-        <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-default" %>
-
+        <% if policy(Post).edit? %>
+          <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-default" %>
+        <% end %>
       </div>
       <div class="col-xs-3"></div>
     </div>

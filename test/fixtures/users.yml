@@ -15,6 +15,7 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime
 #  updated_at             :datetime
+#  role                   :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
@@ -26,8 +27,10 @@
 james: 
   email: jyoun@gmail.com
   encrypted_password: <%= User.new.send(:password_digest, 'password1234') %>
+  role: "Admin"
 
 steve:
   email: steveko@gmail.com
   encrypted_password: <%= User.new.send(:password_digest, 'password1234') %>
+  role: nil
 

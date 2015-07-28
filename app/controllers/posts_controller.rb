@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-    
+  after_action :verify_authorized
+
   def index
     load_posts
   end
@@ -37,16 +38,19 @@ class PostsController < ApplicationController
   private
 
   def load_posts
-    @posts ||= post_scope.to_a
+    @posts = Post.all
+    authorize @posts
   end
 
   def load_post
-    @post ||= post_scope.find(params[:id])
+    @post = Post.find(params[:id])
+    authorize @post
   end
 
   def build_post
     @post ||= post_scope.build
     @post.attributes = post_params
+    authorize @post
   end
 
   def save_post
@@ -57,8 +61,8 @@ class PostsController < ApplicationController
 
   def post_params
     post_params = params[:post]
-    post_params ? post_params.permit(:user_id, :title, :text) : {} #how does this work?
-    # post_params = params.require(:post).permit(:user_id, :title, :text)
+    post_params ? post_params.permit(:title, :text) : {} #how does this work?
+    # post_params = params.require(:post).permit(:title, :text)
   end
 
   def post_scope
