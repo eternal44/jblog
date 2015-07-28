@@ -1,10 +1,7 @@
 class PostPolicy < ApplicationPolicy
-  def index?
-    true
-  end
 
   def update?
-    user.role == "Admin"
+    user.present? && user.admin?
   end
   
   # def show? # authorizing show action isn't working.
@@ -12,7 +9,11 @@ class PostPolicy < ApplicationPolicy
   # end
   
   def create?
-    user.role == "Admin"
+    user.present? && user.admin?
+  end
+
+  def destroy?
+    user.present? && user.admin?
   end
 
 end

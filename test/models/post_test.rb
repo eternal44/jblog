@@ -31,9 +31,4 @@ class PostTest < ActiveSupport::TestCase
     @post.text = ""
     assert_not @post.valid?
   end
-
-  test "james should be the only one to create" do
-    @post.user_id = @steve
-    assert_not @post.valid?
-  end
 end

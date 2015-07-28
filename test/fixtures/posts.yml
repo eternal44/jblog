@@ -28,5 +28,4 @@ invalid_post:
 most_recent:
   title: "Most Recent Post"
   text: "I got nothing to write really"
-  user: james
   created_at: <%= Time.zone.now %>

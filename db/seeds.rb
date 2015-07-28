@@ -13,10 +13,9 @@ User.create!(email: "jamesyoun710@gmail.com",
              password_confirmation: "password1234")
 
 #Posts
-user = User.first
-
 20.times do
   title = "Fake blog post"
   text = Faker::Lorem.sentence(400)
-  user.posts.create!(title: title, text: text)
+  Post.create!(title: title, text: text)
+
 end

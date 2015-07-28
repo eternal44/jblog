@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  after_action :verify_authorized
 
   def index
     load_posts
@@ -39,7 +38,6 @@ class PostsController < ApplicationController
 
   def load_posts
     @posts = Post.all
-    authorize @posts
   end
 
   def load_post
