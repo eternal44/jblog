@@ -1,8 +1,16 @@
 <h3>Comments</h3>
 <% commentable.comments.each do |comment| %>
   <div class="well">
+  <div class="row">
     <%= comment.body %>
+    <div class="pull-right">
+      <p><%= comment.user.role %> |
+         <%= time_ago_in_words(comment.updated_at) %> ago
+      </p>
   </div>
+
+  </div>
+</div>
 <% end %>
 
 
