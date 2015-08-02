@@ -16,6 +16,8 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  role                   :string
+#  first_name             :string
+#  last_name              :string
 #
 
 class User < ActiveRecord::Base

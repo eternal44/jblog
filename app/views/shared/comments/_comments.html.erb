@@ -4,8 +4,8 @@
   <div class="row">
     <%= comment.body %>
     <div class="pull-right">
-      <p><%= comment.user.role %> |
-         <%= time_ago_in_words(comment.updated_at) %> ago
+      <p><%= comment.user.first_name %> |
+         <% time_ago_in_words(comment.updated_at) %> ago
       </p>
   </div>
 

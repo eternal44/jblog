@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     resources :comments, module: :posts
   end
 
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show], shallow: true do
+    resources :profiles
+  end
 
   root 'posts#index'
 
