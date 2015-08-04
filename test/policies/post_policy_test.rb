@@ -1,11 +1,15 @@
 require 'test_helper'
 
-class PostsControllerTest < ActionController::TestCase
+class PostPolicyTest < Minitest::Test
   def setup
     @post = posts(:valid_post)
     @regular = users(:steve)
     @admin = users(:james)
   end
+
+  # def test_admin_can_post
+  #   # assert PostPolicy.new(@admin, @post).publish? #write method later (see PS)
+  # end
 
 #   test "should create post if admin" do
 #     sign_in :users, @admin
@@ -22,5 +26,4 @@ class PostsControllerTest < ActionController::TestCase
   #   assert_no_difference 'Post.count' do
   #     delete :destroy, id: posts(:valid_post)
   #   end
-  # end
 end
