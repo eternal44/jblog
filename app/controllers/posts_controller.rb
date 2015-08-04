@@ -37,7 +37,9 @@ class PostsController < ApplicationController
   private
 
   def load_posts
-    @posts = Post.all
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true)
+    # @posts = Post.all
   end
 
   def load_post
