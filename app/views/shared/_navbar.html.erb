@@ -26,12 +26,6 @@
           <li><%= link_to "Contact", static_pages_contact_path %></li>
 
 
-          <li>
-            <%= search_form_for @q, html: {class: "form-inline navbar-left" } do |f| %>
-              <%= f.search_field :text_or_title_cont, placeholder: "Search posts", class: "form-control vertical-align: middle", style: "top-padding: 10px; margin-left: 10px"%>
-              <%= f.submit "Search", class: "btn btn-primary", style: "top-padding: 10px; margin-left: 10px" %>
-          <% end %>
-          </li>
         </ul>
       </nav>
     </div>
