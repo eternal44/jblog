@@ -8,11 +8,11 @@
   <h3><%= @post.title %></h3>
     <div class="row">
       <div class="col-xs-9">
-        <p><%= sanitize @post.text %></p>
+        <p><%= @post.text %></p>
         <p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
 
         <ul class="list-inline">
-          <li><a href="#"><%= time_ago_in_words(@post.updated_at)%> ago</a></li>
+          <li><a href="#"><%= time_ago_in_words(@post.created_at)%> ago</a></li>
           <li><a href="#"><i class="glyphicon glyphicon-comment"></i><%= @post.comments.count %> Comments</a></li>
           <li><a href="#"><i class="glyphicon glyphicon-share"></i> 34 Shares</a></li>
         </ul>
