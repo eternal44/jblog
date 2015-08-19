@@ -13,7 +13,6 @@
         <ul class="list-inline">
           <li><a href="#"><%= time_ago_in_words(@post.created_at)%> ago</a></li>
           <li><a href="#"><i class="glyphicon glyphicon-comment"></i><%= @post.comments.count %> Comments</a></li>
-          <li><a href="#"><i class="glyphicon glyphicon-share"></i> 34 Shares</a></li>
         </ul>
 
         <% if policy(Post).edit? %>
