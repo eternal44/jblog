@@ -32,8 +32,5 @@ class PostTest < ActiveSupport::TestCase
     @post.text = ""
     assert_not @post.valid?
   end
-
-  test "flunk" do
-    flunk
-  end
 end
+

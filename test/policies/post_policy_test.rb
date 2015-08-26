@@ -1,10 +1,11 @@
 require 'test_helper'
 
-class PostPolicyTest < Minitest::Test
-  def setup
+class PostPolicyTest < PolicyTest
+  def test_new
     @post = posts(:valid_post)
     @regular = users(:steve)
     @admin = users(:james)
+    assert permit(@admin, Post.new, :new)
   end
 
   # def test_admin_can_post
