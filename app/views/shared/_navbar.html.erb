@@ -11,22 +11,18 @@
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <ul class="nav navbar-nav">
-
-          <% if user_signed_in? %>
-            <li><%= link_to "Profile", edit_user_registration_path %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "Profile", edit_user_registration_path %></li>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
           <% if policy(Post).new? %>
             <li><%= link_to 'New Post', new_post_path %></li>
-        <% end %>
+          <% end %>
         <% else %>
-            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <li><%= link_to "Sign Up", new_user_registration_path %></li>
           <li><%= link_to "Login", new_user_session_path %></li>
         <% end %>
           <li><%= link_to "Contact", static_pages_contact_path %></li>
-
-
-        </ul>
-      </nav>
-    </div>
-  </header>
+      </ul>
+    </nav>
+  </div>
+</header>
