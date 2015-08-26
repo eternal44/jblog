@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
+gem 'pg'
+
 gem 'faker', '~> 1.4.3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -14,7 +16,6 @@ gem 'pundit', '~> 1.0.1'
 gem 'devise', '~> 3.5.1'
 gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'ransack', '~> 1.6.6'
-gem 'pg'
 
 group :development, :test do
   gem 'hirb'
@@ -27,11 +28,11 @@ group :development, :test do
 end
 
 group :test do
-  # removed minitest-rails gem - kept throwing backtrace errors
   gem 'minitest-capybara'
   gem 'capybara'
-  gem 'minitest-reporters'
+  gem 'minitest-reporters', '1.0.5'
   gem 'mini_backtrace'
+  gem 'guard-minitest', '2.3.1'
 end
 
 group :production do
