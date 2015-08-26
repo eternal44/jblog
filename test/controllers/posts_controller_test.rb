@@ -7,7 +7,7 @@ class PostsControllerTest < ActionController::TestCase
     @admin = users(:james)
   end
 
-  test "should create post if admin" do
+  test 'should create post if admin' do
     sign_in @admin
     assert_difference 'Post.count', 1 do
       post :create, post: {title: "Howdy", text: "Fewer than a hundred characters perhaps"}
