@@ -5,11 +5,10 @@ Rails.application.routes.draw do
   get 'static_pages/about'
 
   resources :posts do
-    resources :comments, module: :posts
+    resources :comments, module: :posts, only: [:create]
   end
 
   resources :users, only: [:index, :show], shallow: true do
-    resources :profiles
   end
 
   root 'posts#index'
