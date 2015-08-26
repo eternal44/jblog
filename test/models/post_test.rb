@@ -11,6 +11,7 @@
 #
 
 require 'test_helper'
+# check test_helper.rb for Pundit test methods
 
 class PostTest < ActiveSupport::TestCase
   def setup
@@ -31,6 +32,10 @@ class PostTest < ActiveSupport::TestCase
   test "text should be present" do
     @post.text = ""
     assert_not @post.valid?
+  end
+
+  test "most recent should be first" do
+    assert_equal posts(:most_recent), Post.first
   end
 end
 
