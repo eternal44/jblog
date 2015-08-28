@@ -61,7 +61,7 @@ class PostsController < ApplicationController
 
   def post_params
     post_params = params[:post]
-    post_params ? post_params.permit(:title, :text) : {} #how does this work?
+    post_params ? post_params.permit(:title, :text, :published_at, :status) : {} #how does this work?
     # post_params = params.require(:post).permit(:title, :text)
   end
 
