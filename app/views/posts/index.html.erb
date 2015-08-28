@@ -19,7 +19,7 @@
         <p><%= sanitize post.text[0..400] %> ....</p>
           <%= link_to "Read More", post_path(post), class: "btn btn-default" %>
         <ul class="list-inline">
-          <li><a href="#"><%= time_ago_in_words(post.created_at)%> ago</a></li>
+          <li><%= "Published at #{post.published_at}" %></li>
           <li><a href="#"><i class="glyphicon glyphicon-comment"></i><%= post.comments.count %> Comments</a></li>
         </ul>
       </div>
