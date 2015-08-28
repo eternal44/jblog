@@ -2,8 +2,8 @@ require 'test_helper'
 
 class PostsControllerTest < ActionController::TestCase
   def setup
-    @post = posts(:valid_post)
-    @regular = users(:steve)
+    @post = posts(:valid_post) # not using
+    @regular = users(:steve) # not using
     @admin = users(:james)
   end
 
