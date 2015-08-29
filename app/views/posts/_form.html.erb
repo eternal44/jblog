@@ -21,7 +21,6 @@
     <%= form.text_area :text, cols: 80, rows: 10, placeholder: "Write new post" %>
   </div>
 
-
   <div class="field">
     <%= form.label :status %>
     <%= form.select :status, ["Draft", "Published", "Scheduled"],
@@ -35,3 +34,7 @@
 
   <%= form.submit %>
 <% end %>
+
+<br>
+<br>
+<%= link_to 'Back', 'javascript:history.go(-1);' %>
