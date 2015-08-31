@@ -10,28 +10,18 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, size: 77 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :text %>
-    <%= form.text_area :text, cols: 80, rows: 10, placeholder: "Write new post" %>
-  </div>
-
+  <%= form.label :title %>
+  <%= form.text_field :title, size: 77 %>
+  </br>
   <div class="field">
     <%= form.label :status %>
     <%= form.select :status, ["Draft", "Published", "Scheduled"],
       selected: status_for(@post) %>
   </div>
-
   <div class="field published-field">
     <%= form.label :published_at, "Publish At" %><br>
     <%= form.datetime_select :published_at %>
   </div>
-
   <%= form.submit %>
 <% end %>
 

@@ -11,8 +11,8 @@
         <p><%= sanitize @post.text, tags: %w(strong img h4 br p div ul li a script) %></p>
 
         <ul class="list-inline">
-          <li><%= "Published at #{@post.published_at}" %></li>
-          <li><i class="glyphicon glyphicon-comment"></i><%= @post.comments.count %> Comments</li>
+          <li><a href="#"><%= time_ago_in_words(@post.created_at)%> ago</a></li>
+          <li><a href="#"><i class="glyphicon glyphicon-comment"></i><%= @post.comments.count %> Comments</a></li>
         </ul>
 
         <% if policy(Post).edit? %>
