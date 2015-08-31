@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Post Drafts</h1>
+<div class="row-fluid">
+  </br>
+  <table class="table table-bordered table-condensed table-striped">
+    <thead>
+      <tr>
+        <th>See Post</th>
+        <th>Created At</th>
+        <th>Edit</th>
+        <th>Destroy</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% if @post_drafts.present? %>
+        <% @post_drafts.each do |post| %>
+          <tr>
+            <td><%= link_to post.title, post %></td>
+            <td><%= post.created_at %></td>
+            <td><%= link_to "See Post", [:edit, post] %></td>
+            <td><%= link_to "Delete Post", post_path(post), method: :delete,
+              data: {confirm: 'Are you sure?'} %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<h1>Scheduled Posts</h1>
+<div class="row-fluid">
+  </br>
+  <table class="table table-bordered table-condensed table-striped">
+    <thead>
+      <tr>
+        <th>See Post</th>
+        <th>Created At</th>
+        <th>Edit</th>
+        <th>Destroy</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% if @scheduled_posts.present? %>
+        <% @scheduled_posts.each do |post| %>
+          <tr>
+            <td><%= link_to post.title, post %></td>
+            <td><%= post.created_at %></td>
+            <td><%= link_to "See Post", [:edit, post] %></td>
+            <td><%= link_to "Delete Post", post_path(post), method: :delete,
+              data: {confirm: 'Are you sure?'} %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
