@@ -16,7 +16,7 @@
             <li><%= link_to 'New Post', new_post_path %></li>
             <li><%= link_to "Dashboard", dashboard_overview_path %></li>
           <% end %>
-          <li><%= link_to "Contact", static_pages_contact_path %></li>
+          <li><%= link_to "Contact", contact_path %></li>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
           <li><%= link_to "Profile", edit_user_registration_path %></li>
         <% else %>
