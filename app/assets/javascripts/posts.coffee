@@ -10,3 +10,4 @@ jQuery ->
   change_visibility($("#post_status :selected").text())
   $("#post_status").on "change", (e) ->
     change_visibility $(this).find(":selected").text()
+
