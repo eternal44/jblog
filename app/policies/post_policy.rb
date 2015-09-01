@@ -17,4 +17,3 @@ class PostPolicy < ApplicationPolicy
     user.present? && user.admin?
   end
 end
-

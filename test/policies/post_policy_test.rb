@@ -12,6 +12,6 @@ class PostPolicyTest < PolicyTest
   end
 
   test 'should not create post if regular user' do
-    assert_not permit(@regular, Post.new, :new)
+    refute_permit(@regular, Post.new, :new)
   end
 end
