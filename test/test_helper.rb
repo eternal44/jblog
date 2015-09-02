@@ -2,18 +2,29 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require "minitest/reporters"
+require 'minitest/rails'
+
+require 'capybara/rails'
+require 'minitest/rails/capybara'
 Minitest::Reporters.use!
+
+# for creating sessions in tests
+include Warden::Test::Helpers
+Warden.test_mode!
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
     fixtures :all
-
-  # Add more helper methods to be used by all tests here...
 end
 
 class ActionController::TestCase
   include Devise::TestHelpers
 end
+
+class ActionDispatch::IntegrationTest
+  include Capybara::DSL
+end
+
 class PolicyTest < ActiveSupport::TestCase
   def assert_permissions(current_user, record, available_actions, permissions_hash = {})
     permissions_hash.each do |action, should_be_permitted|
