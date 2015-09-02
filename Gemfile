@@ -31,6 +31,7 @@ end
 group :test do
   gem 'minitest-reporters', '1.0.5'
   gem 'minitest-rails-capybara'
+  gem 'selenium-webdriver'
   # gem 'mini_backtrace'
   gem 'guard-minitest', '2.3.1'
 end
