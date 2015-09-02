@@ -39,5 +39,11 @@ class PostsTest < ActionDispatch::IntegrationTest
     visit root_path
     assert page.has_link?('Logout')
     assert page.has_link?('New Post')
+    click_on('New Post')
+    assert page.has_field?('Title', type: 'text')
+    fill_in('Title', with: 'Test Post')
+    fill_in('Text', with: 'Just another post')
+    click_on('Create Post')
+    assert page.has_content?('Just another post')
   end
 end
