@@ -1,17 +1,15 @@
 require 'test_helper'
 require 'database_cleaner'
 
+
 class PostsTest < ActionDispatch::IntegrationTest
 
   # for setup and tear down each time we run tests
   self.use_transactional_fixtures = false
 
   setup do
-    DatabaseCleaner.start
-  end
-
-  teardown do
-    DatabaseCleaner.clean
+    # comment in if you want to run tests with selenium
+    # Capybara.default_driver = :selenium
   end
 
   def setup
@@ -29,13 +27,19 @@ class PostsTest < ActionDispatch::IntegrationTest
     assert page.has_text?('jamesyoun710')
   end
 
-  test 'login and create a post' do
+  test 'login successfully' do
     visit new_user_session_path
     assert page.has_field?('Email', type: 'email')
-    fill_in('Email', with: 'jamesyoun710@gmail.com')
-    fill_in('Password', with: 'gooneen44')
-    click_on('Log in') # I should have been able to login with the above action # I should have been able to login with the above action
-    # login_as(@admin)
+    assert page.has_content?('Forgot your password?')
+    fill_in('Email', with: 'jyoun@gmail.com')
+    fill_in('Password', with: 'password1234')
+    find_button('Log in')
+    click_on 'Log in'
+    assert page.has_content?('Logout'), 'not logged in'
+  end
+
+  test 'create post as admin' do
+    login_as(@admin)
     visit root_path
     assert page.has_link?('Logout')
     assert page.has_link?('New Post')
