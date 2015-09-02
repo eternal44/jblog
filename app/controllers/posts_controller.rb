@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-def index
+  def index
     load_posts
   end
 
@@ -65,5 +65,4 @@ def index
   def post_scope
     Post.all #fill in
   end
-
 end
