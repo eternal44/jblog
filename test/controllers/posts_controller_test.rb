@@ -4,6 +4,8 @@ class PostsControllerTest < ActionController::TestCase
   def setup
     @regular = users(:steve) # not using
     @admin = users(:james)
+    @request.headers['Accept'] = Mime::JSON
+    @request.headers['Content-Type'] = Mime::JSON.to_s
   end
 
   test 'should create post if admin' do
@@ -11,7 +13,6 @@ class PostsControllerTest < ActionController::TestCase
     assert_difference 'Post.count', 1 do
       post :create, post: {title: "Howdy", text: "Fewer than a hundred characters perhaps"}
     end
-    assert_redirected_to post_path(assigns(:post))
   end
 
   # include once I properly apply authenticate
