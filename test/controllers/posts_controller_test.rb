@@ -2,7 +2,6 @@ require 'test_helper'
 
 class PostsControllerTest < ActionController::TestCase
   def setup
-    @post = posts(:valid_post) # not using
     @regular = users(:steve) # not using
     @admin = users(:james)
   end
@@ -15,13 +14,12 @@ class PostsControllerTest < ActionController::TestCase
     assert_redirected_to post_path(assigns(:post))
   end
 
-  test 'should create post comment as regular' do
-    sign_in @regular
-    assert_difference 'Comment.count', 1 do
-      post :create, post: {commentable_type: :posts,
-                           commentable: @post,
-                           user_id: @regular}
-
-    end
-  end
+  # include once I properly apply authenticate
+  # test 'should not create post if regular' do
+  #   sign_in @regular
+  #   assert_no_difference 'Post.count' do
+  #     post :create, post: {title: "Howdy", text: "Fewer than a hundred characters perhaps"}
+  #   end
+  #   assert_redirected_to posts_path
+  # end
 end
