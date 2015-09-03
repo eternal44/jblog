@@ -6,7 +6,11 @@ require 'minitest/rails'
 
 require 'capybara/rails'
 require 'minitest/rails/capybara'
-Minitest::Reporters.use!
+Minitest::Reporters.use!(
+  Minitest::Reporters::ProgressReporter.new,
+  ENV,
+  Minitest.backtrace_filter
+)
 
 # for creating sessions in tests
 include Warden::Test::Helpers

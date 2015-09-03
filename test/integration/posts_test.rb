@@ -1,5 +1,5 @@
 require 'test_helper'
-require 'database_cleaner'
+# require 'database_cleaner'
 
 
 class PostsTest < ActionDispatch::IntegrationTest

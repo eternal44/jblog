@@ -18,7 +18,6 @@ gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'ransack', '~> 1.6.6'
 
 group :development, :test do
-  gem 'database_cleaner'
   gem 'hirb'
   gem 'byebug'
 	gem 'annotate'
@@ -32,7 +31,6 @@ group :test do
   gem 'minitest-reporters', '1.0.5'
   gem 'minitest-rails-capybara'
   gem 'selenium-webdriver'
-  # gem 'mini_backtrace'
   gem 'guard-minitest', '2.3.1'
 end
 
