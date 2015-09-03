@@ -1,68 +1,61 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
   def index
-    load_posts
-  end
-
-  def show
-    load_post
-  end
-
-  def new
-    build_post
-  end
-
-  def create
-    build_post
-    save_post or render 'new'
-  end
-
-  def edit
-    load_post
-    build_post
-  end
-
-  def update
-    load_post
-    build_post
-    save_post or render 'edit'
-  end
-
-  def destroy
-    load_post
-    @post.destroy
-    redirect_to posts_path
-  end
-
-  private
-
-  def load_posts
     @q = Post.published.ransack(params[:q])
     @posts = @q.result(distinct: true)
   end
 
-  def load_post
-    @post = Post.find(params[:id])
+  def show
     authorize @post
   end
 
-  def build_post
-    @post ||= post_scope.build
-    @post.attributes = post_params
-    authorize @post
+  def new
+    @post = Post.new
   end
 
-  def save_post
-    if @post.save
-      redirect_to @post
+  def create
+    @post = Post.new(post_params)
+
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to @post, notice: 'Post was successfully created.'}
+        format.json { render :show, status: :created, location: @post }
+      else
+        format.html { render :new }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
     end
   end
 
-  def post_params
-    post_params = params[:post]
-    post_params ? post_params.permit(:title, :text, :published_at, :status) : {}
+  def edit
   end
 
-  def post_scope
-    Post.all #fill in
+  def update
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to @post, notice: 'Post was successfully created.'}
+        format.json { render :show, status: :created, location: @post }
+      else
+        format.html { render :new }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @post.destroy
+    respond_to do |format|
+      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :text, :published_at, :status)
   end
 end
