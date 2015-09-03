@@ -9,7 +9,7 @@ class CommentsControllerTest < ActionController::TestCase
   test 'should create post comment as regular' do
     sign_in @regular
     assert_difference 'Comment.count', 1 do
-      comment = @post.comments.build
+      comment = @post.comments.build(body: 'hello')
       comment.save!
       assert_equal 'Post', comment.commentable_type
       assert_equal @post.id, comment.commentable_id

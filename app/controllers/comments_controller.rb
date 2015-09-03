@@ -2,11 +2,14 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @comment = @commentable.comments.build comment_params
+    @comment = @commentable.comments.new( comment_params )
     @comment.user = current_user
-    @comment.save
 
-    redirect_to @commentable
+    if @comment.save
+      redirect_to @commentable
+    else
+      redirect_to @commentable
+    end
   end
 
   private
