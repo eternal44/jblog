@@ -14,4 +14,14 @@ class PostsControllerTest < ActionController::TestCase
     end
     assert_redirected_to post_path(assigns(:post))
   end
+
+  test 'should create post comment as regular' do
+    sign_in @regular
+    assert_difference 'Comment.count', 1 do
+      post :create, post: {commentable_type: :posts,
+                           commentable: @post,
+                           user_id: @regular}
+
+    end
+  end
 end
