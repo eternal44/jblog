@@ -2,13 +2,17 @@
 #
 # Table name: posts
 #
-#  id           :integer          not null, primary key
-#  title        :string
-#  text         :text
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  user_id      :integer
-#  published_at :datetime
+#  id                 :integer          not null, primary key
+#  title              :string
+#  text               :text
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  user_id            :integer
+#  published_at       :datetime
+#  photo_file_name    :string
+#  photo_content_type :string
+#  photo_file_size    :integer
+#  photo_updated_at   :datetime
 #
 
 class Post < ActiveRecord::Base
@@ -19,7 +23,13 @@ class Post < ActiveRecord::Base
 
   attr_accessor :status
 
-  # mount_uploader :picture, PictureUploader
+  has_attached_file :photo,
+    :styles => {
+    :thumb => "100x100#",
+    :small  => "150x150>",
+    :medium => "200x200" }
+
+  validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
 
   before_validation :clean_up_status
   validates :title, presence: true
