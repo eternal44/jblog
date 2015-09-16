@@ -27,7 +27,8 @@ class Post < ActiveRecord::Base
     :styles => {
     :thumb => "100x100#",
     :small  => "150x150>",
-    :medium => "200x200" }
+    :medium => "200x200" },
+    default_url: "http://www.placehold.it/100"
 
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
 
