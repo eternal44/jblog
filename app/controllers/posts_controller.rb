@@ -32,6 +32,7 @@ class PostsController < ApplicationController
 
   def update
     respond_to do |format|
+      @post.update_attribute(:photo, params[:post][:photo])
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully updated.'}
         format.json { render :show, status: :created, location: @post }
