@@ -10,24 +10,29 @@
       </ul>
     </div>
   <% end %>
-  <%= form.label :title %><br>
-  <%= form.text_field :title, size: 57 %>
-  <br>
-  <br>
-  <%= form.label :text %>
-  <%= form.text_area :text, size: "60x12" %>
-  <%= form.file_field :photo %>
-  </br>
-  <div class="field">
+  <div class='form-group'>
+    <%= form.label :title %><br>
+    <%= form.text_field :title, class: 'form-control', size: 57 %>
+  </div>
+  <div class='form-group'>
+    <%= form.label :text %>
+    <%= form.text_area(:text, class: 'form-control', size: "60x12") %>
+  </div>
+  <div class='form-group'>
+    <%= form.file_field :photo %>
+  </div>
+  <div class="form-group">
     <%= form.label :status %>
     <%= form.select :status, ["Draft", "Published", "Scheduled"],
       selected: status_for(@post) %>
   </div>
-  <div class="field published-field">
+  <div class="form-group field published-field">
     <%= form.label :published_at, "Publish At" %><br>
     <%= form.datetime_select :published_at %>
   </div>
-  <%= form.submit %>
+  <div class='action'>
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
 <% end %>
 
 <br>
