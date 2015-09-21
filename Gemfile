@@ -17,7 +17,7 @@ gem 'devise',                 '~> 3.5.1'
 gem 'bootstrap-sass',         '~> 3.3.4.1'
 gem 'ransack',                '~> 1.6.6'
 gem 'paperclip',              '~> 4.3'
-gem 'aws-sdk'
+gem 'aws-sdk',                '< 2.0'
 
 group :development, :test do
   gem 'hirb'
