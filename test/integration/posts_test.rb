@@ -50,4 +50,14 @@ class PostsTest < ActionDispatch::IntegrationTest
     click_on('Create Post')
     assert page.has_content?('Just another post')
   end
+
+  test 'update post as admin' do
+    login_as(@admin)
+    visit post_path(@post)
+    assert page.has_content?('Lorem ipsum'), 'not on post page'
+    click_on('Edit')
+    fill_in('Text', with: 'Apples')
+    click_on('Update Post')
+    assert page.has_content?('Apples')
+  end
 end
