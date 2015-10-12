@@ -14,12 +14,6 @@ class PostsControllerTest < ActionController::TestCase
     end
   end
 
-  # test 'should update post' do
-  #   # test failing because post won't update here.  Works fine with manual test
-  #   patch :update, id: @post, text: 'pdated text'
-  #   assert_equal('updated text', @post.text)
-  # end
-
   test 'should show post' do
     # get(:show, post: { id: @post.id })
     get :show, id: @post

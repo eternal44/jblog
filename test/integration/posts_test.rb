@@ -41,14 +41,14 @@ class PostsTest < ActionDispatch::IntegrationTest
   test 'create post as admin' do
     login_as(@admin)
     visit root_path
-    assert page.has_link?('Logout')
-    assert page.has_link?('New Post')
+    assert page.has_link?('Logout'), 'not logged in'
+    assert page.has_link?('New Post'), 'not logged in as admin'
     click_on('New Post')
-    assert page.has_field?('Title', type: 'text')
+    assert page.has_field?('Title', type: 'text'), 'not on new post page'
     fill_in('Title', with: 'Test Post')
     fill_in('Text', with: 'Just another post')
     click_on('Create Post')
-    assert page.has_content?('Just another post')
+    assert page.has_content?('Just another post'), 'new post not created'
   end
 
   test 'update post as admin' do
